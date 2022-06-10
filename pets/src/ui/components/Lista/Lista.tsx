@@ -7,10 +7,19 @@ import {
     Nome,
     Descricao
 } from './Lista.Style'
+import { Pet } from '../../../data/@types/Pet'
+import { TextService } from '../../../data/services/TextService'
 
-export default function Lista() {
+interface ListaProps{
+    pets: Pet[];
+}
+
+export default function Lista(props: ListaProps) {
+    const tamanhoMaximoTexto = 200;
+    
     return (
         <ListaStyled>
+
             <ItemLista>
                 <Foto src={'https://pbs.twimg.com/media/FSVEVU3WQAc8-pt?format=jpg&name=large'}/>
                 <Informacoes>

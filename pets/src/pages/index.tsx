@@ -15,6 +15,7 @@ const Home: NextPage = () => {
       <span>Com um pequeno valor mensal você <br />
       pode <strong>adotar um pet virtualmente</strong></span>} />
 
+
       <Lista/>
       
       <Dialog 
