@@ -10,14 +10,21 @@ export const ListaStyled = styled('ul')`
 export const ItemLista = styled('li')`
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: ${({ theme }) => theme.spacing(5)};
-    margin-bottom: ${({ theme }) => theme.spacing(5)};
 
-    ${({ theme }) => theme.breakpoints.down('md')} {
+    gap: ${({ theme }) => theme.spacing(5) };
+    margin-bottom: ${({ theme }) => theme.spacing(5) };
+
+    ${({ theme }) => theme.breakpoints.down('md') } {
         grid-template-columns: 1fr;
-        gap: ${({ theme }) => theme.spacing(2)};
-        margin-bottom: ${({ theme }) => theme.spacing(10)};
+        gap: ${({ theme }) => theme.spacing(2) };
+        margin-bottom: ${({ theme }) => theme.spacing(10) };
     }
+
+`;
+
+export const Foto = styled('img')`
+    width: 90%;
+
 `;
 
 export const Foto = styled('img')`
@@ -28,12 +35,12 @@ export const Foto = styled('img')`
 export const Informacoes = styled('div')`
     display: flex;
     flex-direction: column;
-    gap: ${({ theme }) => theme.spacing(2)};
-
+    gap: ${({ theme }) => theme.spacing(2) };
 `;
 
 export const Nome = styled('h2')`
     margin: 0;
+
 `;
 
 export const Descricao = styled('p')`

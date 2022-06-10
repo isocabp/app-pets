@@ -1,6 +1,8 @@
 import type { NextPage } from 'next'
 import Title from '../ui/components/Title/Title';
 import Lista from '../ui/components/Lista/Lista';
+import { Dialog, TextField, Grid, DialogActions, Button, Snackbar } from '@mui/material';
+import { useState } from 'react';
 
 
 
@@ -13,23 +15,49 @@ const Home: NextPage = () => {
       <span>Com um pequeno valor mensal você <br />
       pode <strong>adotar um pet virtualmente</strong></span>} />
 
-      <Lista 
-        pets={[
-          {
-            id: 1,
-            nome: 'Bidu',
-            historia: 'alsdkjlasdjlasd alksdjalsda asdlkjadlajd aldjaldjasld',
-            foto: 'https://www.maxtotalalimentos.com.br/img/seo/9/377/5-coisas-que-fazem-seu-cachorro-viralata-feliz.jpg'
-          },
-          {
-            id: 2,
-            nome: 'Mezeno',
-            historia: 'alsdkjlasdjlasd alksdjalsda asdlkjadlajd aldjaldjasld',
-            foto: 'https://i.pinimg.com/564x/37/7c/b4/377cb4b88e459ab85e38bfea0d3631c3.jpg'
-          },
 
-        ]}
+      <Lista/>
+      
+      <Dialog 
+        open={false}
+        fullWidth
+        PaperProps={{sx: {p: 5} }}
+      >
+        <Grid container spacing={2}>
+          <Grid item xs={12}>
+            <TextField 
+              label={'Email'}
+              type={'email'}
+              fullWidth
+            />
+        </Grid>
+        <Grid item xs={12}>
+            <TextField 
+              label={'Quantia por mês'}
+              type={'number'}
+              fullWidth
+            />
+        </Grid>
+        </Grid>
+        <DialogActions sx={{mt:5}}>
+          <Button
+            color={'secondary'}
+          >
+            Cancelar
+          </Button>
+          <Button 
+            variant={'contained'}
+          >
+            Confirmar adoção
+          </Button>
+        </DialogActions>
+      </Dialog>
+
+      <Snackbar
+        open={false}
+        message={'slkdjlad asldjaldja dasldjaldjk asdljadlkja'}
       />
+      
     </div>
   )
 }
