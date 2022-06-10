@@ -12,11 +12,11 @@ export default function Lista() {
     return (
         <ListaStyled>
             <ItemLista>
-                <Foto src={'https://www.maxtotalalimentos.com.br/img/seo/9/377/5-coisas-que-fazem-seu-cachorro-viralata-feliz.jpg'}/>
+                <Foto src={'https://pbs.twimg.com/media/FSVEVU3WQAc8-pt?format=jpg&name=large'}/>
                 <Informacoes>
-                    <Nome>Bidu</Nome>
+                    <Nome>Mezena</Nome>
                     <Descricao>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius cum culpa ad ipsum ex, sint iure tempora incidunt quas deleniti provident vero perferendis in libero earum necessitatibus, laborum dolores quam!
+                        Dentinha. É muito mimada, nossa rainha. É uma mezena!
                     </Descricao>
                     <Button
                         variant={'contained'}
@@ -24,11 +24,11 @@ export default function Lista() {
                 </Informacoes>
             </ItemLista>
             <ItemLista>
-                <Foto src={'https://www.maxtotalalimentos.com.br/img/seo/9/377/5-coisas-que-fazem-seu-cachorro-viralata-feliz.jpg'}/>
+                <Foto src={'https://pbs.twimg.com/media/FG_2mk8WYAA11LV?format=jpg&name=large'}/>
                 <Informacoes>
-                    <Nome>Bidu</Nome>
+                    <Nome>Jake Peralta</Nome>
                     <Descricao>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius cum culpa ad ipsum ex, sint iure tempora incidunt quas deleniti provident vero perferendis in libero earum necessitatibus, laborum dolores quam!
+                        Muito carinho mas muito bruto. Cria!
                     </Descricao>
                     <Button
                         variant={'contained'}
