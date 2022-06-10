@@ -1,5 +1,5 @@
 import { useState } from 'react';
-
+import { Pet } from '../../@types/Pet';
 
 export function useIndex() {
     const [listaPets, setListaPets] = useState(
@@ -13,13 +13,19 @@ export function useIndex() {
             {
                 id: 2,
                 nome: 'Jake Peralta',
-                historia: 'Muito carinho mas muito bruto. Cria!',
+                historia: 'Muito carinhoso mas muito bruto. Cria!',
                 foto: 'https://pbs.twimg.com/media/FG_2mk8WYAA11LV?format=jpg&name=large'
             },
             
         ]
-    )
+    ),
+
+        [petSelecionado, setPetSelecionado] = useState<Pet | null>(null);    
+
+
     return{
-        listaPets
+        listaPets,
+        petSelecionado,
+        setPetSelecionado
     };
 }
