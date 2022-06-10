@@ -2,12 +2,16 @@ import type { NextPage } from 'next'
 import Title from '../ui/components/Title/Title';
 import Lista from '../ui/components/Lista/Lista';
 import { Dialog, TextField, Grid, DialogActions, Button, Snackbar } from '@mui/material';
-import { useState } from 'react';
+import { useIndex } from '../data/hooks/pages/useIndex';
 
 
 
 
 const Home: NextPage = () => {
+  const {
+    listaPets
+  } = useIndex();
+
   return (
     <div>
       <Title title="" 
@@ -15,8 +19,11 @@ const Home: NextPage = () => {
       <span>Com um pequeno valor mensal você <br />
       pode <strong>adotar um pet virtualmente</strong></span>} />
 
-      <Lista/>
-      
+      <Lista
+        pets={listaPets}
+      />
+
+
       <Dialog 
         open={false}
         fullWidth
