@@ -19,7 +19,6 @@ class AdocaoSerializer(serializers.ModelSerializer):
         validated_data["pet"] = validated_data.pop("pet_id")
         return super().create(validated_data)
 
-
     def validate_valor(self, value):
         if value < 10:
             raise serializers.ValidationError("Deve ser maior que 10")
