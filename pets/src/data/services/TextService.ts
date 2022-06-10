@@ -1,5 +1,5 @@
 export const TextService = {
-    limitarTexto(texto: string, tamanhoMaximo: number): string {
+    limitarTexto(texto: string, tamanhoMaximo: number): string{
         if(texto.length < tamanhoMaximo){
             return texto;
         }

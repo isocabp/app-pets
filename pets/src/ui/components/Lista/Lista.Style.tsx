@@ -27,10 +27,6 @@ export const Foto = styled('img')`
 
 `;
 
-export const Foto = styled('img')`
-    width: 100%;
-
-`;
 
 export const Informacoes = styled('div')`
     display: flex;
