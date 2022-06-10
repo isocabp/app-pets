@@ -1,31 +1,71 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Pet } from '../../@types/Pet';
+import { ApiService } from '../../services/ApiService';
+import { AxiosError } from 'axios';
 
 export function useIndex() {
-    const [listaPets, setListaPets] = useState(
-        [
-            {
-                id: 1,
-                nome: 'Mezena',
-                historia: 'Dentinha. É muito mimada, nossa rainha. É uma mezena!',
-                foto: 'https://pbs.twimg.com/media/FSVEVU3WQAc8-pt?format=jpg&name=large'
-            },
-            {
-                id: 2,
-                nome: 'Jake Peralta',
-                historia: 'Muito carinhoso mas muito bruto. Cria!',
-                foto: 'https://pbs.twimg.com/media/FG_2mk8WYAA11LV?format=jpg&name=large'
-            },
-            
-        ]
-    ),
+    const [listaPets, setListaPets] = useState<Pet[]>([]),
+        [petSelecionado, setPetSelecionado] = useState<Pet | null>(null), 
+        [email, setEmail] = useState(''),
+        [valor, setValor] = useState(''),
+        [mensagem, setMensagem] = useState('');
 
-        [petSelecionado, setPetSelecionado] = useState<Pet | null>(null);    
+    useEffect(() => {
+        ApiService.get('/pets')
+            .then((resposta) => {
+                setListaPets(resposta.data);
+            })
+    }, [])
+
+    useEffect(() => {
+        if(petSelecionado === null) {
+            limparFormulario();
+        }
+    }, [petSelecionado])
+
+    function adotar() {
+        if(petSelecionado !== null) {
+            if(validarDadosAdocao()){
+                ApiService.post('/adocoes', {
+                    pet_id:petSelecionado.id,
+                    email,
+                    valor
+                })
+                    .then(() => {
+                        setPetSelecionado(null);
+                        setMensagem('Pet adotado com sucesso!');
+                        //limparFormulario();
+                    })
+                    .catch((error: AxiosError) => {
+                        setMensagem(error.response?.data.message);
+                    })
+            } else {
+                setMensagem('Preencha todos os campos corretamente!')
+            }
+        }
+    };
+
+    function validarDadosAdocao() {
+        return email.length > 0 && valor.length > 0;
+    }
+
+    function limparFormulario() {
+        setEmail('');
+        setValor('');
+    }
+
 
 
     return{
         listaPets,
         petSelecionado,
-        setPetSelecionado
+        setPetSelecionado,
+        email,
+        setEmail,
+        valor,
+        setValor,
+        mensagem,
+        setMensagem,
+        adotar
     };
 }
