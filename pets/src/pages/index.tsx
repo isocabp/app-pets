@@ -9,7 +9,9 @@ import { useIndex } from '../data/hooks/pages/useIndex';
 
 const Home: NextPage = () => {
   const {
-    listaPets
+    listaPets,
+    petSelecionado,
+    setPetSelecionado
   } = useIndex();
 
   return (
@@ -21,13 +23,15 @@ const Home: NextPage = () => {
 
       <Lista
         pets={listaPets}
+        onSelect={(pet) => setPetSelecionado(pet)}
       />
 
 
       <Dialog 
-        open={false}
+        open={petSelecionado !== null}
         fullWidth
         PaperProps={{sx: {p: 5} }}
+        onClose={() => setPetSelecionado(null)}
       >
         <Grid container spacing={2}>
           <Grid item xs={12}>
