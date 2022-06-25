@@ -9,7 +9,7 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
-        ("pet", "0001_initial"),
+        ("pet", "0002_alter_pet_foto"),
     ]
 
     operations = [
